@@ -15,18 +15,23 @@ export class ProfileComponent implements OnInit {
   }
 
   logout = () => {
-    fetch('http://localhost:3000/api/logout', {
+    fetch('https://wbdv-online-sp20-server-node.herokuapp.com/api/logout', {
       method: 'POST',
       credentials: 'include'
     }).then(status => this.router.navigate(['']));
   }
 
   ngOnInit(): void {
-    fetch('http://localhost:3000/api/currentUser', {
+    fetch('https://wbdv-online-sp20-server-node.herokuapp.com/api/currentUser', {
       method: 'POST',
       credentials: 'include'
-    }).then(response => response.json())
-      .then(currentUser => this.currentUser = currentUser)
+    }).then(response => {
+      console.log(response);
+      return response.json();
+    })
+      .then(currentUser => {
+        this.currentUser = currentUser;
+      });
   }
 
 }

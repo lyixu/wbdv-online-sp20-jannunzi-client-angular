@@ -18,7 +18,7 @@ export class MultipleChoiceQuestionComponent implements OnInit {
   answerChange = new EventEmitter<string>()
 
   submitAnswer = () => {
-    this.answerChange.emit(this.answer)
+    this.answerChange.emit(this.answer);
   }
   ngOnInit(): void {
   }

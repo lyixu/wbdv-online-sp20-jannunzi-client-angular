@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
   password: string
 
   register = (username, password) => {
-    fetch('http://localhost:3000/api/register', {
+    fetch('https://wbdv-online-sp20-server-node.herokuapp.com/api/register', {
       method: 'POST',
       credentials: 'include',
       body: JSON.stringify({username, password}),

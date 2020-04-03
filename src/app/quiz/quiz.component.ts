@@ -23,12 +23,12 @@ export class QuizComponent implements OnInit {
         'content-type': 'application/json'
       }
     }).then(response => response.json())
-      .then(result => console.log(result))
+      .then(result => console.log(result));
   }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.quizId = params.qid
+      this.quizId = params.qid;
       this.service.findQuestionsForQuiz(this.quizId)
         .then(questions => this.questions = questions);
     });

@@ -11,6 +11,7 @@ export class QuizzesComponent implements OnInit {
   constructor(private service: QuizzesServiceClient) { }
 
   quizzes = [{
+    _id: '',
     title: '',
     attempts: []
   }]
@@ -21,18 +22,18 @@ export class QuizzesComponent implements OnInit {
         return quizzes.map(quiz => {
           console.log(quiz._id)
           return fetch(`http://localhost:3000/api/quizzes/${quiz._id}/attempts`)
-            .then(response => response.json())
+            .then(response => response.json());
         });
       })
       .then(attemptPromises => {
-        return Promise.all(attemptPromises)
+        return Promise.all(attemptPromises);
       })
       .then(attempts => {
         console.log(attempts);
         for (let i = 0; i < this.quizzes.length; i++) {
-          this.quizzes[i].attempts = attempts[i]
+          this.quizzes[i].attempts[i] = attempts[i];
         }
-      })
+      });
   }
 
   deleteQuiz = (quizDeleted) =>

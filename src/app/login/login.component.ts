@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   username: string
   password: string
   login = (username, password) => {
-    fetch('http://localhost:3000/api/login', {
+    fetch('https://wbdv-online-sp20-server-node.herokuapp.com/api/login', {
       method: 'POST',
       body: JSON.stringify({username, password}),
       credentials: 'include',
